@@ -10,6 +10,7 @@ LimeChat is an IRC client for Mac OS X.
 
 * Satoshi Nakagawa http://github.com/psychs
 * ##limechat on chat.freenode.net
+* evil features by Squigger J Johnson
 
 ## "Evil" features
 * Auto rejoin on kick
@@ -19,6 +20,37 @@ LimeChat is an IRC client for Mac OS X.
 * Fake CTCP version reply
 * Random name every launch
 * Autojoin forced on added channels (helps ban evasion)
+* CTCP dont respond
+* DCC dont respond
+* force join all saved channels
+* hostname ban evader (disconnect, change hostname, nickname, and whatever else) (with fast reconnect)
+
+note: To use the IP ban evader you have to set up n VPNs in the form "<VPN Name> #" ... currently it's hardcoded to 40 "CyberHost" VPNs but you can change the name and amount to anything you want in the code. Look at the ipEvade function in IRCClient.m. It probably won't even work probably without this set up properly or disabled. But not just AS-IS. Look at the code.
+
+
+DONT HAVE, PLANNED:
+
+* disconnect/reconnect spammer
+
+IRC exploits not yet implemented
+
+crapflooding - self explanatory
+
+IP ban evader (disconnect, reconfigure VPN, reconnect, rejoin)
+
+moderation mode challenger - join and leave with random names annoyingly
+
+MESSAGE spammer.. just spam a ton of messages. somewhat annoying.
+
+geolocate anyone via right click. (and maybe get the weather)
+
+IP2Skype support… resolve people’s Skype
+
+regular (slow) floods (channel/message…)
+
+
+SHOUT OUTS TO 2600
+
 
 ## Thanks To
 
