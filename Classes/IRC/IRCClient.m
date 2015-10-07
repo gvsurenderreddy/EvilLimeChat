@@ -407,7 +407,7 @@
 
 - (void)onReconnectTimer:(id)sender
 {
-    NSLog([NSString stringWithFormat:@"vpn_name %@ is equal to blank string %hhd", [self vpnName], [[self vpnName] isNotEqualTo: @""]]);
+//    NSLog([NSString stringWithFormat:@"vpn_name %@ is equal to blank string %hhd", [self vpnName], [[self vpnName] isNotEqualTo: @""]]);
     if([[self vpnName] isNotEqualTo: @""])
         [self connect:CONNECT_RECONNECT];
     else
@@ -3044,29 +3044,18 @@
 }
 
 -(void) ipEvade {
+    NSLog(@"Evading ip ban or kline...");
     if([[self vpnName] isNotEqualTo: @""]) return;
     int num_of_proxies = 30;
-    NSDictionary* errorDict;
-    NSAppleEventDescriptor* returnDescriptor = NULL;
-    NSAppleScript* scriptObject;
     
     int next_vpn = arc4random_uniform(num_of_proxies);
     
     if((next_vpn == 0) || (next_vpn == _lastVPN)) next_vpn++;
     
+    char *sysCmd;
+    asprintf(&sysCmd, "/usr/sbin/scutil --nc start \"CyberGhost %d\"", next_vpn);
     
-    
-    NSString *connectScript = [NSString stringWithFormat:@"tell application \"System Events\"\n\
-                               tell current location of network preferences\n\
-                               set VPN to service \"CyberGhost %d\"\n\
-                               if exists VPN then connect VPN\n\
-                               end tell\n\
-                               end tell\n\
-                               return", next_vpn];
-    
-    scriptObject = [[NSAppleScript alloc] initWithSource: connectScript];
-    
-    returnDescriptor = [scriptObject executeAndReturnError: &errorDict];
+    system(sysCmd);
     
     
     
