@@ -20,7 +20,7 @@
 #define TIME_BUFFER_SIZE    256
 
 #define QUIT_INTERVAL       5
-#define RECONNECT_INTERVAL  1
+#define RECONNECT_INTERVAL  5
 #define RETRY_INTERVAL      240
 #define NICKSERV_INTERVAL   5
 
