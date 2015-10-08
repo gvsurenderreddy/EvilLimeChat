@@ -1578,6 +1578,7 @@
 
 - (void)sendLine:(NSString*)str
 {
+    if(_conn)
     [_conn sendLine:str];
 
     LOG(@">>> %@", str);
@@ -2720,6 +2721,7 @@
 
         if (!myself) {
             [self checkRejoin:c];
+            sleep(2);
             [self joinChannel: c];
         }
     }
@@ -2752,6 +2754,7 @@
             [self notifyEvent:USER_NOTIFICATION_KICKED target:c nick:nick text:comment];
             [SoundPlayer play:[Preferences soundForEvent:USER_NOTIFICATION_KICKED]];
             // rejoin kicked channel here
+            sleep(2);
             [self joinChannel: c];
         }
 
